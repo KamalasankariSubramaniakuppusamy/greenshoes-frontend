@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../styles/orderDetails.css";
+import "../styles/OrderDetails.css";
 
 const OrderDetailsPage = () => {
   const { id } = useParams();
