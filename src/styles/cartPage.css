@@ -1,0 +1,10 @@
+.cart-page {
+  padding: 30px;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 8px;
+}

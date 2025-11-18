@@ -1,0 +1,90 @@
+.orders-page {
+  padding: 20px;
+}
+
+.orders-page h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.order-header p {
+  margin: 4px 0;
+  color: #444;
+}
+
+.order-items-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.order-items-preview .thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.order-items-preview .more {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.order-footer {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-outline {
+  border: 1px solid #333;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: #333;
+  color: #fff;
+}
+
+.btn-reorder {
+  background: #00996d;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-reorder:hover {
+  background: #007a56;
+}
+ 

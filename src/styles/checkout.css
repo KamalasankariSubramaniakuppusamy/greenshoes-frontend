@@ -1,0 +1,10 @@
+.checkout-page {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+}
+
+.checkout-page label {
+  display: block;
+  margin-bottom: 12px;
+}

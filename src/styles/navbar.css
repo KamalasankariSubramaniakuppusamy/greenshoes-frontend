@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #e63946;
+  border: none;
+  padding: 0;
+}
