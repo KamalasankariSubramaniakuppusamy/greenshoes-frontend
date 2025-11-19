@@ -1,40 +1,67 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext.jsx";
-import { useAuth } from "../context/AuthContext.jsx";
-import "../styles/navbar.css";   // 🔥 REQUIRED for styling in Vite
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import "../styles/navbar.css";
 
 const Navbar = () => {
-  const { cart } = useCart();
   const { user, logout } = useAuth();
-
-  // Safely calculate item count
-  const cartCount = cart?.reduce((sum, item) => sum + (item.quantity || 0), 0) || 0;
+  const [openAccount, setOpenAccount] = useState(false);
 
   return (
     <nav className="navbar">
-      <Link to="/" className="brand">GreenShoes</Link>
+      <div className="nav-left">
+        <Link to="/" className="logo">GreenShoes</Link>
+      </div>
 
       <div className="nav-links">
-        <Link to="/wishlist">Wishlist</Link>
+        <NavLink to="/" className="nav-item">Home</NavLink>
+        <NavLink to="/wishlist" className="nav-item">Wishlist</NavLink>
+        <NavLink to="/cart" className="nav-item">Cart</NavLink>
 
-        <Link to="/cart" className="cart-link">
-          Cart ({cartCount})
-        </Link>
+        {/* ACCOUNT DROPDOWN */}
+        <div
+          className="nav-item account-menu"
+          onMouseEnter={() => setOpenAccount(true)}
+          onMouseLeave={() => setOpenAccount(false)}
+        >
+          <span className="nav-item">My Account ▾</span>
 
-        {!user ? (
-          <Link to="/login">Login</Link>
-        ) : (
-          <>
-            <Link to="/profile">
-              {user.name?.split(" ")[0] || "User"}
-            </Link>
+          {openAccount && (
+            <div className="dropdown-menu">
 
-            <button onClick={logout} className="logout-btn">
-              Logout
-            </button>
-          </>
-        )}
+              {/* GUEST USER */}
+              {!user && (
+                <div className="guest-box">
+                  <p className="guest-title">
+                    Happy to have you here!
+                  </p>
+                  <p className="guest-subtitle">
+                    Create an account for an effortless shopping experience.
+                  </p>
+
+                  <Link to="/register" className="btn-create">Create Account</Link>
+
+                  <p className="italic-note">Already have an account?</p>
+                  <Link to="/login" className="login-link">Login</Link>
+                </div>
+              )}
+
+              {/* LOGGED-IN USER */}
+              {user && (
+                <div className="user-box">
+                  <p className="user-welcome">Hello, {user.name}</p>
+
+                  <Link to="/profile" className="menu-link">My Profile</Link>
+                  <Link to="/orders" className="menu-link">My Orders</Link>
+
+                  <button className="logout-btn" onClick={logout}>
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );
